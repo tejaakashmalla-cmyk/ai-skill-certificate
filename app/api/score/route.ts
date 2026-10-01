@@ -1,0 +1,2 @@
+import {NextResponse} from 'next/server'; import {QUESTIONS} from '@/lib/questions';
+export async function POST(req:Request){try{const {answers}=await req.json(); if(!answers||typeof answers!=='object')return NextResponse.json({error:'Invalid answers.'},{status:400});let score=0;for(const q of QUESTIONS){if(answers[q.id]===q.options[q.answer])score++;}return NextResponse.json({score,total:QUESTIONS.length,passed:score>=21});}catch{return NextResponse.json({error:'Unable to score assessment.'},{status:400});}}
