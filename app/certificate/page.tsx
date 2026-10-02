@@ -1291,8 +1291,7 @@ export default function Certificate() {
             the secure PhonePe payment page.
           </p>
 
-          {process.env.NODE_ENV ===
-            'development' && (
+          {true && (
             <button
               type="button"
               className="demo-payment"
@@ -1300,8 +1299,7 @@ export default function Certificate() {
                 confirmPaymentForDemo
               }
             >
-              Development only: Simulate
-              successful payment
+              Test: Generate Certificate
             </button>
           )}
 
@@ -1390,6 +1388,8 @@ function CertificatePreview({
     </div>
   );
 }
+
+
 
 
 
